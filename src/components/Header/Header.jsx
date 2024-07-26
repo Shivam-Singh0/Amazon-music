@@ -1,36 +1,38 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import styles from './Header.module.css';
 import { Image } from 'react-bootstrap';
 import amazon_music from '../../assets/amazon_music.png';
+import { GoHome } from "react-icons/go";
+import { useLocation } from 'react-router-dom';
+import SearchBox from './SearchBox';
+import DropDown from '../DropDown/DropDown';
+import { CgProfile } from "react-icons/cg";
 
 function Header() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const items = ['Sign In']
+
   return (
-    <Navbar expand="lg" className={`${styles.nav} px-4 py-1`} data-bs-theme="dark">
-     
-        <Navbar.Brand href="/">
-          <Image src={amazon_music} alt="logo" width="140" height="35" className="d-inline-block align-top"  />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      
+    <Navbar expand="lg" className={`${styles.nav} px-4 py-2`} data-bs-theme="dark">
+      <Navbar.Brand href="/" className="d-flex align-items-center">
+        <Image src={amazon_music} alt="logo" width="140" height="26" className="d-inline-block align-top" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto d-flex align-items-center">
+          <Nav.Link href="/" className={`${currentPath === '/' ? 'active text-primary' : ''} d-flex align-items-center fw-bold ms-4`}>
+            <GoHome size={25} className="me-2" /> HOME
+          </Nav.Link>
+        </Nav>
+        <Nav className="ms-auto d-flex align-items-center gap-3">
+          <SearchBox />
+          <DropDown icon={<CgProfile size={25} />} itmes={items} />
+        </Nav>
+        
+
+      </Navbar.Collapse>
     </Navbar>
   );
 }
