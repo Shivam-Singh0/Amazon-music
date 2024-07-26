@@ -1,4 +1,3 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -8,10 +7,10 @@ import amazon_music from '../../assets/amazon_music.png';
 
 function Header() {
   return (
-    <Navbar expand="lg" className={`${styles.nav} px-4 py-3`} data-bs-theme="dark">
+    <Navbar expand="lg" className={`${styles.nav} px-4 py-1`} data-bs-theme="dark">
      
         <Navbar.Brand href="/">
-          <Image src={amazon_music} alt="logo" width="100" height="100" className="d-inline-block align-top"  />
+          <Image src={amazon_music} alt="logo" width="140" height="35" className="d-inline-block align-top"  />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
