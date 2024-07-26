@@ -1,7 +1,12 @@
+import React from 'react';
+import Header  from "../../Header/Header"
 
-const Home = () => {
+function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <div><Header /></div>
+      <div>Home</div>
+    </div>
   )
 }
 
