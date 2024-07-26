@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 import { Image } from 'react-bootstrap';
 import amazon_music from '../../assets/amazon_music.png';
 import { GoHome } from "react-icons/go";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import DropDown from '../DropDown/DropDown';
 import { CgProfile } from "react-icons/cg";
@@ -12,7 +12,13 @@ import { CgProfile } from "react-icons/cg";
 function Header() {
   const location = useLocation();
   const currentPath = location.pathname;
-  const items = ['Sign In']
+  const items = ['Sign In'];
+  const navigate = useNavigate();
+  const handleItemClick = (item) => {
+    if (item === 'Sign In') {
+      navigate('/login');
+    }
+  };
 
   return (
     <Navbar expand="lg" className={`${styles.nav} px-4 py-2`} data-bs-theme="dark">
@@ -28,7 +34,7 @@ function Header() {
         </Nav>
         <Nav className="ms-auto d-flex align-items-center gap-3">
           <SearchBox />
-          <DropDown icon={<CgProfile size={25} />} itmes={items} />
+          <DropDown icon={<CgProfile size={25} />} itmes={items} onItemClick={handleItemClick} />
         </Nav>
         
 

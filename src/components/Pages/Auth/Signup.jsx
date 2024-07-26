@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../utils/firebas";
+import { auth } from "../../../utils/firebas";
+import Header from "../../Header/Header";
 import "./AuthForm.css";
 
 function Signup() {
@@ -11,6 +12,7 @@ function Signup() {
   const [rpassword, setRpassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -32,6 +34,8 @@ function Signup() {
   };
 
   return (
+    <div className="main-content">
+      <Header />
     <div className="form-container">
       {message && <div className="message">{message}</div>}
       <form onSubmit={handleRegister} className="form">
@@ -77,6 +81,7 @@ function Signup() {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

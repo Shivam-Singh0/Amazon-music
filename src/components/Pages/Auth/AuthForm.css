@@ -1,4 +1,23 @@
+/* Centering the .form-container below the header */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
+header {
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .form-container {
   background: #111010;
@@ -10,7 +29,6 @@
   /* Centered form-container */
   display: flex;
   flex-direction: column;
-  
 }
 
 .message {
@@ -43,7 +61,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
-} 
+}
 
 .button-container {
   text-align: center;

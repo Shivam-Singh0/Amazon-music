@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../utils/firebas";
+import { auth } from "../../../utils/firebas";
 import "./AuthForm.css";
-import Header from "../Header/Header";
+import Header from "../../Header/Header";
 
 function Login() {
   const navigate = useNavigate();
