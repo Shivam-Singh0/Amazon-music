@@ -9,4 +9,5 @@ export default defineConfig({
       '/api': 'https://api.spotify.com/v1',
     }
   },
+
 })

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../utils/firebas";
+import { auth } from "../../../utils/firebase";
 import "./AuthForm.css";
-import Header from "../../Header/Header";
+
 
 function Login() {
   const navigate = useNavigate();
@@ -29,16 +29,14 @@ function Login() {
 
   return (
     
-    <div>
-        <div>
-            <Header />
-        </div>
-        <div className="form-container">
+    <div className="main-content">
+      
+      <div className="form-container">
       {message && <div className="message">{message}</div>}
       <form onSubmit={handleSubmit} className="form">
         <div className="input-container">
           <input
-            type="text"
+            type="email"
             required
             placeholder="Email Address"
             value={email}
