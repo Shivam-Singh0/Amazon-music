@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/Pages/Home/Home'
 import Header from './components/Header/Header'
+import Playlist from './components/Pages/Playlist/Playlist'
 function App() {
   
 
@@ -12,7 +13,7 @@ function App() {
      <Routes>
         
         <Route path='/' element={<Home />} />
-        
+        <Route path='/playlist/:id' element={<Playlist />} />
       </Routes>
      </div >
     </Router>
