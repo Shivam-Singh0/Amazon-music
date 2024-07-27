@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from './Header.module.css';
@@ -9,20 +10,39 @@ import SearchBox from './SearchBox';
 import DropDown from '../DropDown/DropDown';
 import { CgProfile } from "react-icons/cg";
 import { LinkContainer } from 'react-router-bootstrap';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 function Header() {
+  const [items, setItems] = useState(['Sign In']);
+ 
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setItems(['Sign Out','Profile','Playlists']);
+      } else {
+        setItems(['Sign In']);
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, [auth]);
+
   const location = useLocation();
   const currentPath = location.pathname;
-  const items = ['Sign In'];
-
-
   const navigate = useNavigate();
-  const handleItemClick = (item) => {
+
+  const handleItemClick = async (item) => {
     if (item === 'Sign In') {
       navigate('/login');
+    } else if (item === 'Sign Out') {
+      await signOut(auth);
+      setItems(['Sign In']);
+      navigate('/');
     }
   };
-
 
   return (
     <Navbar expand="lg" className={`${styles.nav} px-4 py-2`} data-bs-theme="dark">

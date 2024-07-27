@@ -1,11 +1,21 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../utils/firebase";
 import "./AuthForm.css";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 function Login() {
+
+  const userInfo = getAuth();
+
+  onAuthStateChanged(userInfo, (user) => {
+    if (user) {
+      navigate("/");
+    }
+  });
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +26,7 @@ function Login() {
     e.preventDefault();
     setError("");
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+     await signInWithEmailAndPassword(auth, email, password);
       setMessage("User logged in successfully");
       setTimeout(() => {
         navigate("/");
@@ -57,7 +67,7 @@ function Login() {
         </div>
         {error && <div className="error-message">{error}</div>}
         <div className="account-message">
-          Don't have an account?
+          {`Don't have an account?`}
           <button
             className="login-button"
             onClick={() => navigate("/signup")}

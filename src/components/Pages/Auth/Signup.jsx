@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../utils/firebase"; // Corrected import path
 import "./AuthForm.css";
 
 function Signup() {
+
+  const userInfo = getAuth();
+
+  onAuthStateChanged(userInfo, (user) => {
+    if (user) {
+      navigate("/");
+    }
+  });
+
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +36,7 @@ function Signup() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setMessage("Registered successfully! Redirecting...");
+      
       setTimeout(() => {
         navigate("/");
       }, 2000);
