@@ -11,6 +11,7 @@ import DropDown from '../DropDown/DropDown';
 import { CgProfile } from "react-icons/cg";
 import { LinkContainer } from 'react-router-bootstrap';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 function Header() {
   const [items, setItems] = useState(['Sign In']);
@@ -39,8 +40,8 @@ function Header() {
       navigate('/login');
     } else if (item === 'Sign Out') {
       await signOut(auth);
+      toast.success("User logged out successfully");
       setItems(['Sign In']);
-      navigate('/');
     }
   };
 

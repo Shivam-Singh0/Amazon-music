@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../utils/firebase";
 import "./AuthForm.css";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { toast } from "react-toastify";
 
 
 function Login() {
@@ -27,7 +28,7 @@ function Login() {
     setError("");
     try {
      await signInWithEmailAndPassword(auth, email, password);
-      setMessage("User logged in successfully");
+      toast.success("User logged in successfully");
       setTimeout(() => {
         navigate("/");
       }, 2000);

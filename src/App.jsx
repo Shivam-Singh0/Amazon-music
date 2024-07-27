@@ -4,6 +4,8 @@ import Header from './components/Header/Header'
 import Playlist from './components/Pages/Playlist/Playlist'
 import Login from './components/Pages/Auth/Login'
 import Signup from './components/Pages/Auth/Signup'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   
 
@@ -11,6 +13,7 @@ function App() {
     <Router>
       <Header/>
      <div className='mt-5' >
+      <ToastContainer />
      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />

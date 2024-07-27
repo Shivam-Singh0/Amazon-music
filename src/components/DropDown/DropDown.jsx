@@ -17,7 +17,6 @@ function DropDown({ icon, items, onItemClick }) {
           <Dropdown.Item
             key={index}
             onClick={() => onItemClick(item)}
-            href="#/action-1"
           >
             {item}
           </Dropdown.Item>
