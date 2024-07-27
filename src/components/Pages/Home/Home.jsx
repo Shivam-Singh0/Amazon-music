@@ -1,5 +1,5 @@
 // Home.jsx
-import React from 'react';
+
 import { Container } from 'react-bootstrap';
 import { useGetBollyWoodMushQuery, useGetTopFiftyIndiaQuery, useGetTopGlobalQuery, useGetTrendingIndiaQuery } from "../../../redux/api/playlistsApi";
 import PlaylistSection from "./PlaylistSection";

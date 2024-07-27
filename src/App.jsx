@@ -10,7 +10,6 @@ function App() {
       <Header/>
      <div className='mt-5' >
      <Routes>
-        
         <Route path='/' element={<Home />} />
         <Route path='/playlist/:id' element={<Playlist />} />
       </Routes>
@@ -22,4 +21,4 @@ function App() {
 
 export default App
 
-export default App;
+

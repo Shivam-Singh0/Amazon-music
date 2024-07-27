@@ -4,7 +4,8 @@ import styles from './Playlist.module.css'
 
 const Playlist = () => {
   const { state } = useLocation();
-  const { data } = state;
+  
+  const {data} = state
 
   return (
     <div>

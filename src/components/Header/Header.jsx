@@ -1,4 +1,3 @@
-
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from './Header.module.css';
@@ -44,7 +43,6 @@ function Header() {
         <Nav className="ms-auto d-flex align-items-center gap-3">
           <SearchBox />
           <DropDown icon={<CgProfile size={25} />} items={items} onItemClick={handleItemClick} />
-
         </Nav>
       </Navbar.Collapse>
     </Navbar>
