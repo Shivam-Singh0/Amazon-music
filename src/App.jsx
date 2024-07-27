@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/Pages/Home/Home'
 import Header from './components/Header/Header'
@@ -22,3 +21,5 @@ function App() {
 }
 
 export default App
+
+export default App;

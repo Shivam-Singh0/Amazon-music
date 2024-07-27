@@ -9,11 +9,12 @@ const PlaylistSection = ({ title, isLoading, data }) => {
     return <Loader type={'spinner-circle'} size={100} color={'#fff'} />;
   }
 
+
   return (
     <div className="my-5">
       <Stack direction="horizontal">
         <h1>{title}</h1>
-        <LinkContainer className="ms-auto me-4" to={`/playlist/${data.id}`} state={{ state: data}}>
+        <LinkContainer className="ms-auto me-4" to={`/playlist/${data.id}`} state={{ data: data}}>
           <Button variant="outline-light" size="sm" className="rounded">View All</Button>
         </LinkContainer>
       </Stack>
