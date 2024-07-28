@@ -1,11 +1,11 @@
 import { Card, Image, Stack, Table } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Playlist.module.css'
 
 const Playlist = () => {
   const { state } = useLocation();
-  
-  const {data} = state
+
+  const { data } = state
 
   return (
     <div>
@@ -19,11 +19,11 @@ const Playlist = () => {
         </Stack>
       </Card>
 
-      <Table  borderless
-        className='mx-auto my-4' 
-        style={{width : '90%'}}
+      <Table borderless
+        className='mx-auto my-4'
+        style={{ width: '90%' }}
       >
-        <thead  className={styles.border}>
+        <thead className={styles.border}>
           <tr >
             <th >#</th>
             <th >Title</th>
@@ -38,10 +38,12 @@ const Playlist = () => {
               <td>{index + 1}</td>
               <td className={styles.td}>
                 <Stack direction="horizontal" gap={3}>
-                  <Image src={item.track.album.images[0].url} height={50} width={50} className='rounded' />
+                  <Link to={`/track/${item.track.id}`} className='text-decoration-none'>
+                    <Image src={item.track.album.images[0].url} height={50} width={50} className='rounded' />
+                  </Link>
                   <div>
-                    <p className='text-white fw-bold m-0'>{item.track.name}</p>
-                    <p className='text-secondary'>{item.track.artists[0].name}</p>
+                    <Link to={`/track/${item.track.id}`} className='text-white fw-bold m-0 text-decoration-none'>{item.track.name}</Link>
+                    <p className='text-secondary '>{item.track.artists[0].name}</p>
                   </div>
                 </Stack>
               </td>
