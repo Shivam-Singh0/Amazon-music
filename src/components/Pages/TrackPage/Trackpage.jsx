@@ -1,17 +1,24 @@
 import { Button, Card, Image, Stack, Tooltip, OverlayTrigger } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetTrackQuery } from "../../../redux/api/trackApi";
 import Loader from "react-js-loader";
 import Stars from "../../SongCard/Rating/Stars";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 import { useRef, useState } from "react";
 import { CgPlayListAdd } from "react-icons/cg";
+import { getAuth } from 'firebase/auth';
+import { useDispatch } from "react-redux";
+import { setPlaylist } from "../../../redux/features/playlistSlice";
+import { toast } from 'react-toastify'
 
 const Trackpage = () => {
     const { id } = useParams();
     const { isLoading, data } = useGetTrackQuery(id);
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const navigate = useNavigate();
+    const auth = getAuth();
+    const dispatch = useDispatch();
 
     if (isLoading) {
         return <Loader type={'spinner-circle'} size={100} color={'#fff'} />;
@@ -27,6 +34,16 @@ const Trackpage = () => {
             setIsPlaying(!isPlaying);
         }
     };
+
+    const handlePlayList = () => {
+        if (!auth.currentUser) {
+          navigate('/login')  
+        }
+        else {
+          dispatch(setPlaylist({ userID: auth.currentUser.uid, track: {'trackId':id, 'trackName': data.name, 'image':data.album.images[0].url} }));
+          toast.success("Track added to playlist")
+        } 
+    }
 
     return (
         <div className="mx-5">
@@ -64,7 +81,7 @@ const Trackpage = () => {
                         placement="top"
                         overlay={<Tooltip>Add to Library</Tooltip>}
                     >
-                        <Button variant="outline-light" className="p-0 border-0">
+                        <Button variant="outline-light" className="p-0 border-0" onClick={handlePlayList}>
                             <CgPlayListAdd size={50} />
                         </Button>
                     </OverlayTrigger>

@@ -43,6 +43,12 @@ function Header() {
       toast.success("User logged out successfully");
       setItems(['Sign In']);
     }
+    else if (item === 'Profile') {
+      navigate('/profile');
+    }
+    else if (item === 'Playlists') {
+      navigate('/myplaylist');
+    }
   };
 
   return (

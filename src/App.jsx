@@ -7,6 +7,7 @@ import Signup from './components/Pages/Auth/Signup'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Trackpage from './components/Pages/TrackPage/Trackpage'
+import MyPlaylist from './components/Pages/MyPlaylist/MyPlaylist'
 function App() {
   
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/myplaylist' element={<MyPlaylist />} />
         <Route path='/playlist/:id' element={<Playlist />} />
         <Route path='/track/:id' element={<Trackpage />} />
         
