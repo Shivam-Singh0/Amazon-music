@@ -8,7 +8,7 @@ const SearchBox = () => {
     const navigate = useNavigate()
     const [query, setQuery] = useState('')
 
-    const serachHandler = () => {
+    const searchHandler = () => {
         navigate(`/?q=${query}`)
     }
     return (
@@ -22,7 +22,7 @@ const SearchBox = () => {
                 
                 />
                 <InputGroup.Text id="basic-addon2" className={`${styles.search_button} border-0 bg-white text-dark `}>
-                    <Button onClick={serachHandler} disabled={!query} className='p-0 m-0 bg-transparent border-0'><CiSearch color='#7e7e7e' size={25} /></Button>
+                    <Button onClick={searchHandler} disabled={!query} className='p-0 m-0 bg-transparent border-0'><CiSearch color='#7e7e7e' size={25} /></Button>
                 </InputGroup.Text>
             </InputGroup>
 
