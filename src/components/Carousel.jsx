@@ -45,7 +45,7 @@ function Carausel({data}) {
         {
           data.map((item, index) => {
             return (
-              <SongCard key={index}  name={item.track.name} image={item.track.album.images[0].url} />
+              <SongCard key={index}  name={item.track.name} image={item.track.album.images[0].url} trackId = {item.track.id} />
             )
           })
         }
