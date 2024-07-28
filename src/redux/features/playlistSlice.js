@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     playlist: [],
+    loading : true,
 }
 
 const playlistSlice = createSlice({
@@ -17,12 +18,14 @@ const playlistSlice = createSlice({
             localStorage.setItem(playlist_key, JSON.stringify(state.playlist));
         },
         loadPlaylist: (state, action) => {
-            const {userID} = action.payload;
-            const playlist_key = `playlist_${userID}`;
+            const {userId} = action.payload;
+            const playlist_key = `playlist_${userId}`;
             const playlist = localStorage.getItem(playlist_key);
+           
             if(playlist) {
                 state.playlist = JSON.parse(playlist);
             }
+            state.loading = false;
         }
     }
 })

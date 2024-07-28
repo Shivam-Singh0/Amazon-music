@@ -21,7 +21,7 @@ function Header() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setItems(['Sign Out','Profile','Playlists']);
+        setItems(['Sign Out','Playlists']);
       } else {
         setItems(['Sign In']);
       }
