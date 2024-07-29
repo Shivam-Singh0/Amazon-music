@@ -13,7 +13,7 @@ const Playlist = () => {
         <Stack direction="horizontal" className='p-5' gap={3}>
           <Image src={data.images[0].url} height={200} width={200} className=' rounded' />
           <div>
-            <p className='text-white fw-bold m-0' style={{ fontSize: '6.5rem' }}>{data.name}</p>
+            <p className={`text-white fw-bold m-0 ${styles.text_large}`} >{data.name}</p>
             <p className='text-secondary ms-2'>{data.description}</p>
           </div>
         </Stack>

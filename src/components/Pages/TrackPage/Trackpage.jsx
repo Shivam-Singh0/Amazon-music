@@ -10,6 +10,7 @@ import { getAuth } from 'firebase/auth';
 import { useDispatch } from "react-redux";
 import { setPlaylist } from "../../../redux/features/playlistSlice";
 import { toast } from 'react-toastify'
+import './Trackpage.css'
 
 const Trackpage = () => {
     const { id } = useParams();
@@ -51,8 +52,8 @@ const Trackpage = () => {
                 <Stack direction="horizontal" className='p-5' gap={3}>
                     <Image src={data.album.images[0].url} height={200} width={200} className='rounded' />
                     <div>
-                        <p className='text-white fw-bold m-0' style={{ fontSize: '6.5rem' }}>{data.name}</p>
-                        <Stack direction="horizontal" className="ms-2" gap={1}>
+                        <p className='text-white fw-bold m-0 text-large' >{data.name}</p>
+                        <Stack direction="horizontal" className="ms-2 flex-wrap" gap={1}>
                             <p style={{ color: '#ffffffd9' }} className='m-0'>{data.album.name} &bull; </p>
                             <p style={{ color: '#ffffffd9' }} className='m-0'>{data.album.release_date.slice(0, 4)} &bull; </p>
                             <p style={{ color: '#ffffffd9' }} className='m-0'>{Math.floor(data.duration_ms / 60000)}:{('0' + Math.floor((data.duration_ms % 60000) / 1000)).slice(-2)}  </p>
