@@ -34,10 +34,11 @@ const MyPlaylist = () => {
     
 
     if (!loading && playlist.length < 1) {
+        
         return <div>No tracks added to the playlist</div>;
     }
   
-
+    console.log(playlist);
 
     return (
         <Container>

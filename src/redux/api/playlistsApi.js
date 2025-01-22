@@ -5,7 +5,7 @@ export const playListApiSlice = apiSlice.injectEndpoints({
     endpoints : (builder) => ({
         getTopFiftyIndia : builder.query({
             query : () => ({
-                url : '/playlists/37i9dQZEVXbLZ52XmnySJg',
+                url : '/playlists/4SaPvMAaUjkbNTky16KjfD',
                 method : 'GET'
             }),
             
@@ -13,7 +13,7 @@ export const playListApiSlice = apiSlice.injectEndpoints({
         }),
          getTrendingIndia : builder.query({
             query : () => ({
-                url : '/playlists/37i9dQZF1DXbVhgADFy3im',
+                url : '/playlists/4nqbYFYZOCospBb4miwHWy',
                 method : 'GET'
             }),
             
@@ -21,7 +21,7 @@ export const playListApiSlice = apiSlice.injectEndpoints({
         }), 
         getTopGlobal : builder.query({
             query : () => ({
-                url : '/playlists/37i9dQZEVXbNG2KDcFcKOF',
+                url : '/playlists/1CHT1bqjeyYAF6VuA432nb',
                 method : 'GET'
             }),
             
@@ -29,7 +29,7 @@ export const playListApiSlice = apiSlice.injectEndpoints({
         }),
         getBollyWoodMush : builder.query({
             query : () => ({
-                url : '/playlists/37i9dQZF1DXdpQPPZq3F7n',
+                url : '/playlists/1l6FVZYUqKH7OUXsKRVZBN',
                 method : 'GET'
             }),
             

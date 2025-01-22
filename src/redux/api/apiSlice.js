@@ -55,6 +55,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
     // Dispatch action to save token and expiry time in the state
     dispatch(setToken(tokenData));
+    console.log(tokenData)
   }
 
   // Update headers with the new token

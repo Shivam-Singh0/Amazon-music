@@ -7,6 +7,11 @@ const Playlist = () => {
 
   const { data } = state
 
+  if (!data) { 
+    return (
+      <div>Loading....</div>)
+  }
+
   return (
     <div>
       <Card className='mx-5' style={{ backgroundColor: '#15181c' }} >
@@ -39,7 +44,7 @@ const Playlist = () => {
               <td className={styles.td}>
                 <Stack direction="horizontal" gap={3}>
                   <Link to={`/track/${item.track.id}`} className='text-decoration-none'>
-                    <Image src={item.track.album.images[0].url} height={50} width={50} className='rounded' />
+                    <Image src={item.track.album.images[0]?.url} height={50} width={50} className='rounded' />
                   </Link>
                   <div>
                     <Link to={`/track/${item.track.id}`} className='text-white fw-bold m-0 text-decoration-none'>{item.track.name}</Link>

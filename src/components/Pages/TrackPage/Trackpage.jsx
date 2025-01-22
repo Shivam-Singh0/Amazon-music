@@ -45,7 +45,7 @@ const Trackpage = () => {
           toast.success("Track added to playlist")
         } 
     }
-
+    console.log(data)
     return (
         <div className="mx-5">
             <Card style={{ backgroundColor: '#15181c' }}>

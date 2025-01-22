@@ -8,7 +8,7 @@ import { useSearchQuery } from '../../../redux/api/searchApi';
 import Loader from "react-js-loader";
 import SongCard from '../../SongCard/SongCard';
 const Home = () => {
-  const { data: top50India, isLoading: top50IndiaLoading } = useGetTopFiftyIndiaQuery();
+  const { data: top50India, isLoading: top50IndiaLoading, error } = useGetTopFiftyIndiaQuery();
   const { data: trendingIndia, isLoading: trendingIndiaLoading } = useGetTrendingIndiaQuery();
   const { data: topGlobal, isLoading: topGlobalLoading } = useGetTopGlobalQuery();
   const { data: bollyWood, isLoading: bollyWoodLoading } = useGetBollyWoodMushQuery();
@@ -17,7 +17,6 @@ const Home = () => {
   const query = searchParam.get('q');
 
   const { data: searchData, isLoading: searchLoading } = useSearchQuery(query, { skip: !query });
-
 
 
 
@@ -52,7 +51,7 @@ const Home = () => {
         <PlaylistSection title="Top 50 India" isLoading={top50IndiaLoading} data={top50India} />
         <PlaylistSection title="Trending in India" isLoading={trendingIndiaLoading} data={trendingIndia} />
         <PlaylistSection title="Top Global Tracks" isLoading={topGlobalLoading} data={topGlobal} />
-        <PlaylistSection title="Bollywood Mush" isLoading={bollyWoodLoading} data={bollyWood} />
+        <PlaylistSection title="Best Anime Songs 2024" isLoading={bollyWoodLoading} data={bollyWood} />
       </Container>
     );
   }
